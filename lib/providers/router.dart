@@ -1,6 +1,5 @@
 import 'package:adb_file_explorer/app.dart';
 import 'package:adb_file_explorer/pages/device_details.dart';
-import 'package:adb_file_explorer/pages/device_storages.dart';
 import 'package:adb_file_explorer/pages/devices_view.dart';
 import 'package:adb_file_explorer/pages/directory_listing.dart';
 import 'package:flutter/material.dart';
