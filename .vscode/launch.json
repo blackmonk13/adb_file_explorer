@@ -5,19 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "android_mate",
+            "name": "adb_file_explorer",
             "request": "launch",
-            "type": "dart",
-            "args": ["install"]
+            "type": "dart"
         },
         {
-            "name": "android_mate (profile mode)",
+            "name": "adb_file_explorer (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "android_mate (release mode)",
+            "name": "adb_file_explorer (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

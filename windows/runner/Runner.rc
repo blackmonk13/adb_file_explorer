@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "android_mate" "\0"
+            VALUE "CompanyName", "com.blackmonk13" "\0"
+            VALUE "FileDescription", "adb_file_explorer" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "android_mate" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "android_mate.exe" "\0"
-            VALUE "ProductName", "android_mate" "\0"
+            VALUE "InternalName", "adb_file_explorer" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.blackmonk13. All rights reserved." "\0"
+            VALUE "OriginalFilename", "adb_file_explorer.exe" "\0"
+            VALUE "ProductName", "adb_file_explorer" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

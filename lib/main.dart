@@ -1,30 +1,33 @@
-import 'package:android_mate/app.dart';
-import 'package:bitsdojo_window/bitsdojo_window.dart';
-import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_acrylic/flutter_acrylic.dart';
+import 'package:adb_file_explorer/app.dart';
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:window_manager/window_manager.dart';
 
-Future<void> main(List<String> arguments) async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Window.initialize();
-  
-  runApp(
-    ProviderScope(
-      child: AmApp(
-        arguments: arguments,
-      ),
-    ),
+
+  await windowManager.ensureInitialized();
+
+  WindowOptions windowOptions = const WindowOptions(
+    minimumSize: Size(300, 400),
+    center: true,
+    skipTaskbar: false,
+    titleBarStyle: TitleBarStyle.normal,
+    title: "File Explorer",
+    backgroundColor: Colors.transparent,
   );
 
-  doWhenWindowReady(
-    () {
-      final win = appWindow;
-      const initialSize = Size(1024, 576);
-      win.minSize = const Size(450, 300);
-      win.size = initialSize;
-      win.alignment = Alignment.center;
-      win.title = "AndroidMate";
-      win.show();
-    },
+  windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.show();
+    await windowManager.focus();
+  });
+
+  runApp(
+    // For widgets to be able to read providers, we need to wrap the entire
+    // application in a "ProviderScope" widget.
+    // This is where the state of our providers will be stored.
+    const ProviderScope(
+      child: MyApp(),
+    ),
   );
 }
