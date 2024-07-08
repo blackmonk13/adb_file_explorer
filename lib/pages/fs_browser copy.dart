@@ -46,11 +46,11 @@ class _FsBrowserState extends ConsumerState<FsBrowser> {
     ],
   );
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   setWindowEffect(effect);
-  // }
+  @override
+  void initState() {
+    super.initState();
+    setWindowEffect(effect);
+  }
 
   void setWindowEffect(WindowEffect? value) {
     Window.setEffect(

@@ -234,49 +234,50 @@ class _TilesFsItem extends ConsumerState<TilesFsItem> {
             break;
         }
       },
-      child: Flyout(
-        navigatorKey: fsNavKey,
-        onOpen: () {
-          if (multiselect) {
-            return;
-          }
-          selectItem();
-        },
-        content: (context) {
-          return MenuFlyout(
-            items: multiselect ? multiItemMenu : singleItemMenu,
-          );
-        },
-        openMode: FlyoutOpenMode.secondaryPress,
-        child: ListTile.selectable(
-          selected: selectedItems.contains(item),
-          leading: Icon(
-            leadIcon(item.fileType, item.path),
-            color: context.themeData.accentColor,
-          ),
-          onPressed: () {
-            selectItem();
-            // context.showSnackBar(message: pressedKey ?? 'No key pressed');
-          },
-          onSelectionChange: (value) {
-            selectItem();
-          },
-          selectionMode: multiselect
-              ? ListTileSelectionMode.multiple
-              : ListTileSelectionMode.single,
-          title: Text(
-            item.name,
-            softWrap: false,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-            style: context.textTheme.body,
-          ),
-        ),
-      ),
+      // TODO: Update syntax
+      // child: Flyout(
+      //   navigatorKey: fsNavKey,
+      //   onOpen: () {
+      //     if (multiselect) {
+      //       return;
+      //     }
+      //     selectItem();
+      //   },
+      //   content: (context) {
+      //     return MenuFlyout(
+      //       items: multiselect ? multiItemMenu : singleItemMenu,
+      //     );
+      //   },
+      //   openMode: FlyoutOpenMode.secondaryPress,
+      //   child: ListTile.selectable(
+      //     selected: selectedItems.contains(item),
+      //     leading: Icon(
+      //       leadIcon(item.fileType, item.path),
+      //       color: context.themeData.accentColor,
+      //     ),
+      //     onPressed: () {
+      //       selectItem();
+      //       // context.showSnackBar(message: pressedKey ?? 'No key pressed');
+      //     },
+      //     onSelectionChange: (value) {
+      //       selectItem();
+      //     },
+      //     selectionMode: multiselect
+      //         ? ListTileSelectionMode.multiple
+      //         : ListTileSelectionMode.single,
+      //     title: Text(
+      //       item.name,
+      //       softWrap: false,
+      //       overflow: TextOverflow.ellipsis,
+      //       maxLines: 2,
+      //       style: context.textTheme.body,
+      //     ),
+      //   ),
+      // ),
     );
   }
 
-  List<MenuFlyoutItemInterface> get singleItemMenu {
+  List<MenuFlyoutItemBase> get singleItemMenu {
     final multiselect = ref.read(multiselectFsProvider);
     return [
       MenuFlyoutItem(
@@ -394,7 +395,7 @@ class _TilesFsItem extends ConsumerState<TilesFsItem> {
     ];
   }
 
-  List<MenuFlyoutItemInterface> get multiItemMenu {
+  List<MenuFlyoutItemBase> get multiItemMenu {
     final selectedItems = ref.read(selectedFsProvider);
     final multiselect = ref.read(multiselectFsProvider);
     return [
@@ -453,31 +454,32 @@ class _TilesFsItem extends ConsumerState<TilesFsItem> {
         onPressed: () {},
       ),
       const MenuFlyoutSeparator(),
-      MenuFlyoutSubItem(
-        leading: const Icon(FluentIcons.clipboard_list_add),
-        text: const Text('Copy Path'),
-        items: [
-          MenuFlyoutItem(
-            text: const Text('With Comma'),
-            onPressed: () {
-              if (selectedItems.isEmpty) {
-                return;
-              }
+      // TODO: Update syntax
+      // MenuFlyoutSubItem(
+      //   leading: const Icon(FluentIcons.clipboard_list_add),
+      //   text: const Text('Copy Path'),
+      //   items: [
+      //     MenuFlyoutItem(
+      //       text: const Text('With Comma'),
+      //       onPressed: () {
+      //         if (selectedItems.isEmpty) {
+      //           return;
+      //         }
 
-              context.copyToClipboard(message: selectedItems.join(","));
-            },
-          ),
-          MenuFlyoutItem(
-            text: const Text('With Newline'),
-            onPressed: () {
-              if (selectedItems.isEmpty) {
-                return;
-              }
-              context.copyToClipboard(message: selectedItems.join("\n"));
-            },
-          ),
-        ],
-      ),
+      //         context.copyToClipboard(message: selectedItems.join(","));
+      //       },
+      //     ),
+      //     MenuFlyoutItem(
+      //       text: const Text('With Newline'),
+      //       onPressed: () {
+      //         if (selectedItems.isEmpty) {
+      //           return;
+      //         }
+      //         context.copyToClipboard(message: selectedItems.join("\n"));
+      //       },
+      //     ),
+      //   ],
+      // ),
       MenuFlyoutItem(
         leading: const Icon(FluentIcons.share),
         text: const Text('Share'),
