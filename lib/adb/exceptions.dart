@@ -1,3 +1,9 @@
+///
+/// exceptions.dart
+/// Author: Original Author (GitHub: https://github.com/leancodepl/patrol/tree/master/packages/adb)
+/// Description: Extended version of the exceptions from the [adb package](https://pub.dev/packages/adb).
+/// 
+
 part of "adb.dart";
 
 /// Used when `adb` command fails.
